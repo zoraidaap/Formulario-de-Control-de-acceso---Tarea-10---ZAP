@@ -1,0 +1,7 @@
+{
+  "name": "1er-examen-parcial-intro-apli-mobiles-ZAP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

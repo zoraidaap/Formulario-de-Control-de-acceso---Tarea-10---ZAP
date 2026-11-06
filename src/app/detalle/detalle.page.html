@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>DETALLE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+   @if (pelicula) {
+    <ion-card class="ion-padding">
+      <ion-item lines="none">
+        <ion-label>
+          <h1><strong>{{ pelicula.titulo }}</strong></h1>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
+          <p><strong>Género:</strong></p>
+          <h3>{{ pelicula.genero }}</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
+          <p><strong>Año:</strong></p>
+          <h3>{{ pelicula.anio }}</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
+          <p><strong>Duración:</strong></p>
+          <h3>{{ pelicula.duracion }} minutos</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
+          <p><strong>Director:</strong></p>
+          <h3>{{ pelicula.director }}</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label class="ion-text-wrap">
+          <p><strong>Descripción:</strong></p>
+          <h3>{{ pelicula.descripcion }}</h3>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label>
+          <p><strong>Estado:</strong></p>
+          <!-- Property Binding y estilo condicional -->
+          <h3 [style.color]="pelicula.disponible ? 'green' : 'red'">
+            {{ pelicula.disponible ? 'Disponible' : 'No disponible' }}
+          </h3>
+        </ion-label>
+      </ion-item>
+
+      <div class="ion-margin-top">
+        <!-- Event Binding para volver a la lista -->
+        <ion-button expand="block" color="medium" (click)="volver()">
+          Volver
+        </ion-button>
+      </div>
+    </ion-card>
+  } @else {
+    <ion-card class="ion-padding ion-text-center">
+      <ion-label color="danger">Película no encontrada.</ion-label>
+      <ion-button expand="block" (click)="volver()" class="ion-margin-top">
+        Volver
+      </ion-button>
+    </ion-card>
+  }
+</ion-content>
